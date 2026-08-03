@@ -60,7 +60,6 @@ Errors always look like:
 | 204 | Deleted, no content |
 | 400 | Bad request / validation error |
 | 404 | Resource not found |
-| 429 | Rate limited (contact endpoint) |
 | 500 | Server error |
 
 ### Published filtering
@@ -173,6 +172,12 @@ GET /api/now
 ```
 
 Since `now_updates` is a single evolving document rather than a list, this returns one object rather than an array — no `/api/now/:id`.
+
+---
+
+## Contact Form (not part of this API)
+
+The contact form does not go through the Node backend at all. Angular sends the message directly to a client-side email service (e.g. EmailJS) from the browser. There is no `/api/contact` endpoint, no MongoDB write, and no server-side rate limiting — spam mitigation (honeypot field, EmailJS's own rate limits) lives entirely in the frontend.
 
 ---
 

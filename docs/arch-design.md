@@ -109,9 +109,7 @@ GET /api/skills
 
 Returns technical skills.
 
-POST /api/contact
-
-Submits contact form messages.
+The contact form does not go through this API. Angular sends messages directly to a client-side email service (e.g. EmailJS), so the backend has no involvement in contact submissions.
 ---
 
 # Database
