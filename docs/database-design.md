@@ -94,6 +94,9 @@ portfolio_db
 {
   "company": "Company Name",
   "role": "QA Engineer",
+  "logo": "/images/exp/company-name.svg",
+  "location": "Richmond, VA",
+  "employmentType": "Full-Time",
   "startDate": "2024-01",
   "endDate": null,
   "description": "Worked on software quality and automation.",
@@ -116,6 +119,9 @@ portfolio_db
 |---|---|
 | company | Employer name |
 | role | Job title |
+| logo | Company logo image path |
+| location | Job location (e.g. "Richmond, VA") |
+| employmentType | e.g. "Full-Time", "Internship" |
 | startDate | Employment start date |
 | endDate | Employment end date |
 | description | Role overview |
@@ -139,6 +145,7 @@ portfolio_db
   "title": "Personal Portfolio",
   "description": "Full-stack portfolio application.",
   "category": "Web Application",
+  "status": "In Progress",
   "skillsUsed": [
     "skill-angular",
     "skill-node",
@@ -160,6 +167,7 @@ portfolio_db
 | title | Project name |
 | description | Project overview |
 | category | Project classification |
+| status | One of: `Completed`, `In Progress`, `Planned` |
 | skillsUsed | Related skills |
 | githubUrl | Source repository |
 | demoUrl | Live demonstration |
