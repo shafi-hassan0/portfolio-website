@@ -109,7 +109,7 @@ GET /api/skills
 
 Returns technical skills.
 
-The contact form does not go through this API. Angular sends messages directly to a client-side email service (e.g. EmailJS), so the backend has no involvement in contact submissions.
+The contact form does not go through this API. Angular sends messages directly to **EmailJS**, so the backend has no involvement in contact submissions. The contact page also lists Shafi's email and phone number directly, alongside the form.
 ---
 
 # Database

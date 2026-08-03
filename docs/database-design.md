@@ -294,6 +294,12 @@ Skills will be categorized by type:
 
 ---
 
+## Image Storage
+
+Images are **not** stored in MongoDB. Every `images`/`icon`/`image` field is a URL string pointing to a static file served directly by the Node backend from a local folder (e.g. `backend/public/images/...`), rather than binary data in a document. This keeps documents small, avoids Atlas's free-tier storage quota being consumed by binary assets, and keeps the door open to moving to cloud storage (Cloudinary/S3/R2) later without any schema change — only the URL values would change.
+
+---
+
 ## Database Relationships
 
 MongoDB references related documents using IDs.

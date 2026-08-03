@@ -26,7 +26,7 @@ Scope decisions (blog, desk-metaphor navigation, Easter eggs) are also recorded 
 | `/resume` | Resume | static/PDF + links | Download, LinkedIn, GitHub buttons |
 | `/now` | Now | `GET /api/now` | Own route |
 | `/playground` | Playground | — (client-side only) | Drawing pad, tic-tac-toe vs. computer, room for more games later. No collection, no API involvement — same pattern as contact. |
-| `/contact` | Contact | — (EmailJS, no API) | Form only, sends directly from the browser |
+| `/contact` | Contact | — (EmailJS, no API) | Form (name, subject, message) sends directly from the browser; email and phone also listed directly on the page |
 | `*` | 404 | — | |
 
 ---

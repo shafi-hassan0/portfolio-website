@@ -177,7 +177,9 @@ Since `now_updates` is a single evolving document rather than a list, this retur
 
 ## Contact Form (not part of this API)
 
-The contact form does not go through the Node backend at all. Angular sends the message directly to a client-side email service (e.g. EmailJS) from the browser. There is no `/api/contact` endpoint, no MongoDB write, and no server-side rate limiting — spam mitigation (honeypot field, EmailJS's own rate limits) lives entirely in the frontend.
+The contact form does not go through the Node backend at all. Angular sends the message directly to **EmailJS** from the browser. There is no `/api/contact` endpoint, no MongoDB write, and no server-side rate limiting — spam mitigation (honeypot field, EmailJS's own free-tier limits, ~200 emails/month) lives entirely in the frontend.
+
+The form itself collects: sender name, subject, and message body — no attachments. The contact page also displays Shafi's email and phone number directly, alongside the form, so a visitor can reach out without submitting anything.
 
 ---
 
