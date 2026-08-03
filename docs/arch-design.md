@@ -148,9 +148,9 @@ The frontend will not directly communicate with MongoDB.
 Developer Machine
 
 Angular
-|
+   |
 Node API
-|
+   |
 MongoDB Atlas
 
 ## Local Development

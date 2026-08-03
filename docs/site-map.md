@@ -16,13 +16,12 @@ Scope decisions (blog, desk-metaphor navigation, Easter eggs) are also recorded 
 |---|---|---|---|
 | `/` | Home | — (static content) | "Desk of a Software Engineer" scene — see below |
 | `/about` | About / Story Book | `GET /api/story-chapters` | Interactive book, one chapter per page. A dynamic table of contents (built from chapter `order`/dates) appears above the book once it's open — this **is** the timeline. There is no separate `/timeline` route. |
-| `/experience` | Experience | `GET /api/experiences?expand=skills` | Career roadmap style |
+| `/experience` | Experience | `GET /api/experiences?expand=skills` | Displayed as a box of business cards, one per employer; each card expands inline to show technologies/achievements/lessons learned |
 | `/projects` | Projects (list) | `GET /api/projects` | Cards, filter by `category`/`featured` |
 | `/projects/:id` | Project detail | `GET /api/projects/:id?expand=skills` | Screenshots, GitHub/demo links |
-| `/skills` | Skills | `GET /api/skills` | Grouped by `skillType` |
-| `/skills/:id` | Skill detail | `GET /api/skills/:id?expand=projects,experience` | "Used in" view |
-| `/certifications` | Certifications | `GET /api/certifications` | Own route |
-| `/education` | Education | `GET /api/education` | Own route |
+| `/skills` | Skills | `GET /api/skills` | Displayed as a glass showcase, grouped by `skillType`. Clicking a skill opens a **modal** (fed by `GET /api/skills/:id?expand=projects,experience`) rather than navigating to a new route. No `/skills/:id` page. |
+| `/certifications` | Certifications | `GET /api/certifications` | Displayed as a framed-certificate visual list. Clicking a certificate opens a **modal** with details — no separate route per certification. |
+| `/education` | Education | `GET /api/education` | Displayed as diplomas hung on a wall. Clicking a diploma opens a **modal** with details — no separate route per entry. |
 | `/resume` | Resume | static/PDF + links | Download, LinkedIn, GitHub buttons |
 | `/now` | Now | `GET /api/now` | Own route |
 | `/playground` | Playground | — (client-side only) | Drawing pad, tic-tac-toe vs. computer, room for more games later. No collection, no API involvement — same pattern as contact. |
@@ -39,11 +38,11 @@ The home page (`/`) is an illustrated scene instead of a standard hero section. 
 |---|---|
 | Leather journal | `/about` |
 | Laptop | `/projects` |
-| Toolbox | `/skills` |
+| Glass showcase | `/skills` |
 | Resume printout | `/resume` |
 | Certificate on wall | `/certifications` |
 | Diploma frame | `/education` |
-| Calendar / corkboard | `/experience` |
+| Business card / rolodex box | `/experience` |
 | Envelope | `/contact` |
 | Game controller / notepad | `/playground` |
 | Sticky note / small monitor | `/now` |
@@ -65,3 +64,4 @@ Below the desktop breakpoint, the desk scene is replaced with a phone home-scree
 
 - Timeline, Certifications, and Education were all originally ambiguous (own page vs. embedded section) — resolved above.
 - Playground and Contact are the only two v1 pages with no backend dependency.
+- **Projects** is the only content type with its own detail *page* (`/projects/:id`). Skills, Certifications, and Education all use modals instead of routed detail pages — the underlying detail API endpoints (e.g. `GET /api/skills/:id`) are unchanged, only how the frontend consumes them differs.
