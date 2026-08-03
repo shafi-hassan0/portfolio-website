@@ -300,6 +300,12 @@ Images are **not** stored in MongoDB. Every `images`/`icon`/`image` field is a U
 
 ---
 
+## Document IDs
+
+`skills`, `projects`, and `experiences` use a custom **string `_id`** (a slug, e.g. `"skill-python"`, `"project-portfolio"`, `"experience-kinsale"`) instead of MongoDB's default auto-generated ObjectId. This is what makes the cross-references below work as plain string values — `skillsUsed`, `relatedProjects`, and `relatedExperience` all store these slugs directly. `story_chapters`, `certifications`, `education`, and `now_updates` are never referenced by another collection, so they keep the default ObjectId.
+
+---
+
 ## Database Relationships
 
 MongoDB references related documents using IDs.
