@@ -19,7 +19,7 @@ Scope decisions (blog, desk-metaphor navigation, Easter eggs) are also recorded 
 | `/experience` | Experience | `GET /api/experiences?expand=skills` | Displayed as a box of business cards, one per employer; each card expands inline to show technologies/achievements/lessons learned |
 | `/projects` | Projects (list) | `GET /api/projects` | Cards, filter by `category`/`featured` |
 | `/projects/:id` | Project detail | `GET /api/projects/:id?expand=skills` | Screenshots, GitHub/demo links |
-| `/skills` | Skills | `GET /api/skills` | Displayed as a glass showcase, grouped by `skillType`. Clicking a skill opens a **modal** (fed by `GET /api/skills/:id?expand=projects,experience`) rather than navigating to a new route. No `/skills/:id` page. |
+| `/skills` | Skills | `GET /api/skills` | Displayed as a pencil cup on the desk, grouped by `skillType`. Clicking a skill opens a **modal** (fed by `GET /api/skills/:id?expand=projects,experience`) rather than navigating to a new route. No `/skills/:id` page. |
 | `/certifications` | Certifications | `GET /api/certifications` | Displayed as a framed-certificate visual list. Clicking a certificate opens a **modal** with details — no separate route per certification. |
 | `/education` | Education | `GET /api/education` | Displayed as diplomas hung on a wall. Clicking a diploma opens a **modal** with details — no separate route per entry. |
 | `/resume` | Resume | static/PDF + links | Download, LinkedIn, GitHub buttons |
@@ -38,14 +38,14 @@ The home page (`/`) is an illustrated scene instead of a standard hero section. 
 |---|---|
 | Leather journal | `/about` |
 | Laptop | `/projects` |
-| Glass showcase | `/skills` |
+| Pencil cup | `/skills` |
 | Resume printout | `/resume` |
 | Certificate on wall | `/certifications` |
 | Diploma frame | `/education` |
 | Business card / rolodex box | `/experience` |
 | Envelope | `/contact` |
 | Game controller / notepad | `/playground` |
-| Sticky note / small monitor | `/now` |
+| Sticky-note to-do stack | `/now` |
 
 ### Mobile variant
 
