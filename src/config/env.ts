@@ -11,4 +11,8 @@ function required(name: string): string {
 export const env = {
   port: process.env.PORT ?? "3000",
   mongoUri: required("MONGODB_URI"),
+  emailjsServiceId: required("EMAILJS_SERVICE_ID"),
+  emailjsTemplateId: required("EMAILJS_TEMPLATE_ID"),
+  emailjsPublicKey: required("EMAILJS_PUBLIC_KEY"),
+  emailjsPrivateKey: required("EMAILJS_PRIVATE_KEY"),
 };

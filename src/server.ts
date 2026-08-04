@@ -10,6 +10,7 @@ import { skillRoutes } from "./routes/skill.routes";
 import { certificationRoutes } from "./routes/certification.routes";
 import { educationRoutes } from "./routes/education.routes";
 import { nowRoutes } from "./routes/now.routes";
+import { contactRoutes } from "./routes/contact.routes";
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use("/api/skills", skillRoutes);
 app.use("/api/certifications", certificationRoutes);
 app.use("/api/education", educationRoutes);
 app.use("/api/now", nowRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.use(
   (err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

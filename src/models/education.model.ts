@@ -9,6 +9,7 @@ const educationSchema = new Schema(
     endDate: { type: String, required: true },
     achievements: [{ type: String }],
     published: { type: Boolean, default: true },
+    image: { type: String },
   },
   { versionKey: false },
 );

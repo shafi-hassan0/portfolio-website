@@ -16,9 +16,9 @@ export const educationData: EducationSeed[] = [
     field: "Computer Science",
     startDate: "2018",
     endDate: "2020",
-    achievements: [],
+    achievements: ["GPA: 3.8", "Dean's List 2018, 2019, 2020"],
     published: true,
-    image: "/images/john-tyler.png",
+    image: "/images/story/john-tyler.png",
   },
   {
     school: "Virginia Commonwealth University",
@@ -26,8 +26,8 @@ export const educationData: EducationSeed[] = [
     field: "Computer Science",
     startDate: "2020",
     endDate: "2023",
-    achievements: [],
+    achievements: ["GPA: 3.7", "Dean's List 2020, 2021"],
     published: true,
-    image: "/images/vcu.jpeg",
+    image: "/images/story/vcu.jpeg",
   },
 ];
