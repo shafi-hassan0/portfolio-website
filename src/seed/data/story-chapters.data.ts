@@ -2,7 +2,7 @@ export interface StoryChapterSeed {
   chapterNumber: number;
   title: string;
   dateStart: string;
-  dateEnd: string;
+  dateEnd: string | null;
   content: string;
   images: { url: string; caption: string }[];
   order: number;
@@ -51,7 +51,7 @@ export const storyChaptersData: StoryChapterSeed[] = [
       "After discovering my passion for computer science at John Tyler Community College, I transferred back to Virginia Commonwealth University with a renewed sense of purpose. This time I wasn't simply pursuing a degree—I was pursuing a career that genuinely excited me.\n\nAt VCU, every course felt like another piece of a much larger puzzle. Algorithms taught me how to think efficiently, database courses showed me how information could be organized and connected, and software engineering introduced me to the importance of collaboration, architecture, and writing maintainable code. I found myself spending more time outside the classroom experimenting with new technologies, building small applications, and constantly asking myself how things worked beneath the surface.\n\nOne of the greatest lessons I learned during this time was that software development isn't just about writing code. It's about solving problems for people. Every assignment challenged me to think critically, break down complex problems into manageable pieces, and build solutions that were reliable and understandable.\n\nBy the time I graduated with a Bachelor of Science in Computer Science, I had gained far more than technical knowledge. I had developed the confidence to tackle unfamiliar problems, the curiosity to keep learning, and the determination to continue growing as an engineer long after graduation.",
     images: [
       {
-        url: "/images/story/vcu.svg",
+        url: "/images/story/vcu.jpeg",
         caption: "Graduating from Virginia Commonwealth University",
       },
     ],
@@ -67,7 +67,7 @@ export const storyChaptersData: StoryChapterSeed[] = [
       "While I was still completing my degree, I was given the opportunity to begin my professional career at Tahzoo. It was my first experience working alongside experienced software engineers on applications used by real clients, and it completely changed my perspective on software development.\n\nThe projects were larger than anything I had built in school, and every decision mattered. I learned how teams collaborated through Agile ceremonies, participated in code reviews, worked with version control systems, and experienced firsthand how communication was just as important as technical ability.\n\nAs I developed React components and worked with modern web technologies, I also became increasingly interested in software quality. I found myself asking questions beyond 'Does it work?' and instead wondered 'How can we be confident it will continue working tomorrow?' That curiosity naturally led me toward automated testing.\n\nI had the opportunity to build Cypress automation frameworks from the ground up for new applications. Seeing automated tests quickly validate entire user workflows showed me how powerful quality engineering could be. It wasn't just about finding bugs—it was about giving developers confidence to move faster while protecting the user experience.\n\nLooking back, Tahzoo gave me something invaluable: my first glimpse into what professional software engineering truly looked like and introduced me to the world of automation that would shape the next stage of my career.",
     images: [
       {
-        url: "/images/story/tahzoo.jpg",
+        url: "/images/story/tahzoo.png",
         caption: "My first professional software engineering experience",
       },
     ],
@@ -83,7 +83,7 @@ export const storyChaptersData: StoryChapterSeed[] = [
       "Joining Kinsale Insurance marked another turning point in my journey. While my previous experience introduced me to automation, Kinsale allowed me to fully immerse myself in the discipline of quality engineering.\n\nI quickly learned that quality isn't something added at the end of development—it is something that should be built into every stage of the software lifecycle. I began designing and maintaining Playwright and Pytest automation frameworks, creating reliable API tests, integrating automated testing into CI/CD pipelines, and collaborating closely with developers to improve both software quality and engineering processes.\n\nAs my experience grew, I found myself contributing beyond writing automated tests. I authored testing strategies, created automation plans, developed load testing specifications, and helped teammates expand their own automation knowledge. One of the most rewarding aspects of my work has been building tools and frameworks that enable other engineers to work more efficiently and confidently.\n\nThinking back to the day my mother accidentally broke my first computer program by entering a letter instead of a number, I realize that experience shaped more of my career than I ever expected. Today, I spend my time anticipating those unexpected situations before users ever encounter them. That early lesson in thinking beyond the happy path became the foundation of my approach to quality engineering.",
     images: [
       {
-        url: "/images/story/kinsale.png",
+        url: "/images/story/kinsale-insurance.svg",
         caption: "Building confidence through automation",
       },
     ],
@@ -92,6 +92,26 @@ export const storyChaptersData: StoryChapterSeed[] = [
   },
   {
     chapterNumber: 6,
+    title: "Beyond the Keyboard",
+    dateStart: "Present",
+    dateEnd: null,
+    content:
+      "While software engineering is a big part of my life, it isn't the only part. Outside of work, I enjoy a slower pace of life with my wife in the quiet countryside just north of Richmond, Virginia. After spending much of the day solving technical problems, it's nice to come home to a place where I can unwind and appreciate the simple things.\n\nSome evenings are spent exploring new games together or catching up with friends, while others are as simple as taking a walk outdoors or setting up a friendly badminton match in the yard. Those moments help me recharge and remind me that maintaining a healthy balance between work and personal life is just as important as continuing to grow professionally.\n\nOur home is also shared with two very opinionated cats. Cheese, our curious tabby, is always investigating anything new that appears around the house, while Dr Pepper, our black cat, prefers supervising from a comfortable distance. They have a way of making even the busiest days a little more entertaining.\n\nWhether I'm spending time with family, enjoying the outdoors, or catching up with friends, these moments provide the balance that allows me to return to work each day with fresh energy and a clear mind. They've taught me that while building great software is rewarding, building a fulfilling life outside of work is just as important.",
+    images: [
+      {
+        url: "/images/story/walking.jpg",
+        caption: "Finding balance outside of technology",
+      },
+      {
+        url: "/images/story/cats.jpg",
+        caption: "Cheese and Dr Pepper",
+      },
+    ],
+    order: 6,
+    published: true,
+  },
+  {
+    chapterNumber: 7,
     title: "Always Building",
     dateStart: "2026",
     dateEnd: "Present",
@@ -103,7 +123,7 @@ export const storyChaptersData: StoryChapterSeed[] = [
         caption: "The journey continues",
       },
     ],
-    order: 6,
+    order: 7,
     published: true,
   },
 ];

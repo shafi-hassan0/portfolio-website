@@ -13,7 +13,7 @@ const storyChapterSchema = new Schema(
     chapterNumber: { type: Number, required: true },
     title: { type: String, required: true },
     dateStart: { type: String, required: true },
-    dateEnd: { type: String, required: true },
+    dateEnd: { type: String, default: null },
     content: { type: String, required: true },
     images: [imageSchema],
     order: { type: Number, default: 0 },
