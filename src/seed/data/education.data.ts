@@ -6,6 +6,7 @@ export interface EducationSeed {
   endDate: string;
   achievements: string[];
   published: boolean;
+  image?: string;
 }
 
 export const educationData: EducationSeed[] = [
@@ -17,6 +18,7 @@ export const educationData: EducationSeed[] = [
     endDate: "2020",
     achievements: [],
     published: true,
+    image: "/images/john-tyler.png",
   },
   {
     school: "Virginia Commonwealth University",
@@ -26,5 +28,6 @@ export const educationData: EducationSeed[] = [
     endDate: "2023",
     achievements: [],
     published: true,
+    image: "/images/vcu.jpeg",
   },
 ];
