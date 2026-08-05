@@ -61,6 +61,11 @@ app.use(
   },
 );
 
+/**
+ * Connects to the database and starts the Express server listening on the configured port.
+ *
+ * @returns A promise that resolves once the server is listening.
+ */
 async function start() {
   await connectDb();
   app.listen(env.port, () => {

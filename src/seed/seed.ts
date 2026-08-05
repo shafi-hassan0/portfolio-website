@@ -15,6 +15,14 @@ import { certificationsData } from "./data/certifications.data";
 import { educationData } from "./data/education.data";
 import { nowUpdateData } from "./data/now-update.data";
 
+/**
+ * Replaces a collection's contents with the given seed data.
+ *
+ * @param model - The Mongoose model for the collection to seed.
+ * @param data - The documents to insert; if empty, the collection is left untouched.
+ * @param label - A human-readable name for the collection, used in log output.
+ * @returns A promise that resolves once seeding for this collection completes.
+ */
 async function seedCollection<T>(
   model: mongoose.Model<any>,
   data: T[],
@@ -29,6 +37,11 @@ async function seedCollection<T>(
   console.log(`Seeded ${label}: ${data.length} document(s)`);
 }
 
+/**
+ * Connects to the database and reseeds every collection with its seed data.
+ *
+ * @returns A promise that resolves once all collections have been seeded.
+ */
 async function run() {
   await connectDb();
 
