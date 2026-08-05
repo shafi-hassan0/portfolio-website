@@ -8,7 +8,6 @@ export const contactRoutes = Router();
 
 emailjs.init({
   publicKey: env.emailjsPublicKey,
-  privateKey: env.emailjsPrivateKey,
 });
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

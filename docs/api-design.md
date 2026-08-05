@@ -175,11 +175,33 @@ Since `now_updates` is a single evolving document rather than a list, this retur
 
 ---
 
-## Contact Form (not part of this API)
+## Contact Form
 
-The contact form does not go through the Node backend at all. Angular sends the message directly to **EmailJS** from the browser. There is no `/api/contact` endpoint, no MongoDB write, and no server-side rate limiting — spam mitigation (honeypot field, EmailJS's own free-tier limits, ~200 emails/month) lives entirely in the frontend.
+```
+POST /api/contact
+```
 
-The form itself collects: sender name, subject, and message body — no attachments. The contact page also displays Shafi's email and phone number directly, alongside the form, so a visitor can reach out without submitting anything.
+Unlike the rest of the API, this is a write endpoint. Submissions go through the Node backend rather than talking to EmailJS directly from the browser — this keeps EmailJS credentials server-side and guarantees every submission is recorded even if the outbound email fails.
+
+Request body:
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "message": "Let's talk about..."
+}
+```
+
+Behavior:
+1. Validates `name`, `email`, and `message` are present, and that `email` matches a basic email format. Returns `400 VALIDATION_ERROR` otherwise.
+2. Saves the submission to MongoDB (`contacts` collection, `Contact` model) — this happens first, so no message is ever lost even if the email step below fails.
+3. Sends a notification email via `@emailjs/nodejs` (EmailJS's server-side SDK — not the `@emailjs/browser` client SDK, which doesn't run under Node). Only `EMAILJS_SERVICE_ID`, `EMAILJS_TEMPLATE_ID`, and `EMAILJS_PUBLIC_KEY` are required; `EMAILJS_PRIVATE_KEY` was tried and removed — EmailJS's own request validation never checks for it, so it wasn't doing anything.
+4. If the email send fails, responds `500 EMAIL_FAILED` ("Message saved, but the notification email failed to send.") — the submission is still safely in MongoDB regardless.
+5. On success, returns `200` with `{ message: "Message sent successfully" }`.
+
+There is no server-side rate limiting on this endpoint yet — worth adding if spam becomes an issue.
+
+The contact page also displays Shafi's email and phone number directly, alongside the form, so a visitor can reach out without submitting anything.
 
 ---
 
@@ -206,7 +228,7 @@ Response:
 
 ## Phase 2 — Write Endpoints (deferred, not part of v1)
 
-v1 is read-only. Content is created/edited directly in MongoDB (e.g. via MongoDB Compass or a seed script) until an admin dashboard exists. The shapes below are decided now so the collections don't need rework later, but none of this is built for launch:
+v1 is read-only for content — the one exception is `POST /api/contact` (see above), which is a genuine write endpoint since visitor submissions have to land somewhere. Portfolio content itself is still created/edited directly in MongoDB (e.g. via MongoDB Compass or a seed script) until an admin dashboard exists. The shapes below are decided now so the collections don't need rework later, but none of this is built for launch:
 
 ```
 POST   /api/projects

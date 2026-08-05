@@ -14,5 +14,4 @@ export const env = {
   emailjsServiceId: required("EMAILJS_SERVICE_ID"),
   emailjsTemplateId: required("EMAILJS_TEMPLATE_ID"),
   emailjsPublicKey: required("EMAILJS_PUBLIC_KEY"),
-  emailjsPrivateKey: required("EMAILJS_PRIVATE_KEY"),
 };
