@@ -276,7 +276,7 @@ export const skillsData: SkillSeed[] = [
       "Agentic coding tool used to accelerate test framework development, automate repetitive engineering tasks, and assist with debugging and code review.",
     yearsExperience: 1,
     proficiency: "Intermediate",
-    relatedProjects: [],
+    relatedProjects: ["project-portfolio"],
     relatedExperience: ["experience-kinsale"],
     icon: "/images/skills/claude.svg",
     order: 18,
