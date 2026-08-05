@@ -16,7 +16,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "..", "public", "images")));
+app.use(
+  "/images",
+  express.static(path.join(__dirname, "..", "public", "images")),
+);
 
 app.get("/api/health", async (_req, res) => {
   res.json({
@@ -38,7 +41,12 @@ app.use("/api/now", nowRoutes);
 app.use("/api/contact", contactRoutes);
 
 app.use(
-  (err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  (
+    err: unknown,
+    _req: express.Request,
+    res: express.Response,
+    _next: express.NextFunction,
+  ) => {
     if (err instanceof Error && err.name === "CastError") {
       return res.status(404).json({
         success: false,

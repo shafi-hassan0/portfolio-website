@@ -17,7 +17,12 @@ contactRoutes.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return sendError(res, 400, "VALIDATION_ERROR", "Name, email, and message are required");
+    return sendError(
+      res,
+      400,
+      "VALIDATION_ERROR",
+      "Name, email, and message are required",
+    );
   }
 
   if (!EMAIL_REGEX.test(email)) {
@@ -28,7 +33,12 @@ contactRoutes.post("/", async (req, res) => {
     await Contact.create({ name, email, message });
   } catch (error) {
     console.error("Contact save error:", error);
-    return sendError(res, 500, "SERVER_ERROR", "Failed to send message. Please try again later.");
+    return sendError(
+      res,
+      500,
+      "SERVER_ERROR",
+      "Failed to send message. Please try again later.",
+    );
   }
 
   try {
@@ -41,6 +51,11 @@ contactRoutes.post("/", async (req, res) => {
     sendData(res, { message: "Message sent successfully" });
   } catch (error) {
     console.error("EmailJS Error:", error);
-    sendError(res, 500, "EMAIL_FAILED", "Message saved, but the notification email failed to send.");
+    sendError(
+      res,
+      500,
+      "EMAIL_FAILED",
+      "Message saved, but the notification email failed to send.",
+    );
   }
 });

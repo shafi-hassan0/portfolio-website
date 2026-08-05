@@ -155,7 +155,8 @@ export const skillsData: SkillSeed[] = [
     name: "GitLab CI/CD",
     skillType: "tool",
     category: "DevOps",
-    description: "Used for pipeline configuration and automated test execution.",
+    description:
+      "Used for pipeline configuration and automated test execution.",
     yearsExperience: 3,
     proficiency: "Intermediate",
     relatedProjects: [],
@@ -229,7 +230,8 @@ export const skillsData: SkillSeed[] = [
     name: "Angular",
     skillType: "framework",
     category: "Frontend",
-    description: "Frontend framework used for building scalable single-page applications.",
+    description:
+      "Frontend framework used for building scalable single-page applications.",
     yearsExperience: 1,
     proficiency: "Intermediate",
     relatedProjects: ["project-portfolio"],
@@ -258,7 +260,8 @@ export const skillsData: SkillSeed[] = [
     name: "JIRA",
     skillType: "tool",
     category: "Project Management",
-    description: "Used for defect tracking and Agile/Scrum/Kanban workflow management.",
+    description:
+      "Used for defect tracking and Agile/Scrum/Kanban workflow management.",
     yearsExperience: 3,
     proficiency: "Advanced",
     relatedProjects: [],
