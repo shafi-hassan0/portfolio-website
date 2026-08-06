@@ -6,12 +6,8 @@ export interface NowUpdateSeed {
 }
 
 export const nowUpdateData: NowUpdateSeed | null = {
-  currentlyLearning: [
-    "Angular Advanced Patterns",
-    "Docker",
-    "Backend API Development",
-  ],
-  currentlyBuilding: ["Personal Portfolio Platform"],
-  recentlyCompleted: [],
-  updatedDate: "2026-08-03",
+  currentlyLearning: ["Full Stack Development"],
+  currentlyBuilding: ["Portfolio UI Testing"],
+  recentlyCompleted: ["Portfolio Website", "Portfolio API Testing"],
+  updatedDate: "2026-08-06",
 };

@@ -22,7 +22,7 @@ export const projectsData: ProjectSeed[] = [
     description:
       "Full-stack portfolio application built using Angular, Node.js, and MongoDB. Designed around a database-driven architecture with REST APIs.",
     category: "Web Application",
-    status: "In Progress",
+    status: "Completed",
     skillsUsed: [
       "skill-angular",
       "skill-node",
@@ -48,7 +48,7 @@ export const projectsData: ProjectSeed[] = [
     description:
       "REST Assured API test suite covering the portfolio backend's endpoints, with positive and negative coverage — validation errors, not-found on both valid and malformed IDs, unknown routes — plus a tag-gated live test for the contact form and a GitHub Actions pipeline that runs nightly against production and is triggered automatically whenever the backend changes.",
     category: "Test Automation",
-    status: "In Progress",
+    status: "Completed",
     skillsUsed: [
       "skill-java",
       "skill-maven",
