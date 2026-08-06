@@ -30,7 +30,7 @@ export const projectsData: ProjectSeed[] = [
       "skill-typescript",
       "skill-github-actions",
     ],
-    githubUrl: "https://github.com/shafi-hassan0/portfolio-website",
+    githubUrl: "https://github.com/shafi-hassan0/portfolio-website-api",
     demoUrl: "",
     images: [
       {
@@ -56,7 +56,7 @@ export const projectsData: ProjectSeed[] = [
       "skill-junit",
       "skill-github-actions",
     ],
-    githubUrl: "https://github.com/shafi-hassan0/portfolio-api-tests",
+    githubUrl: "https://github.com/shafi-hassan0/portfolio-website-api-tests",
     demoUrl: "",
     images: [
       {
