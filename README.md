@@ -30,3 +30,7 @@ API tests live in a separate repo: [portfolio-website-api-tests](https://github.
 ## Docs
 
 See `docs/` for architecture, database design, and API design notes.
+
+## Deployment
+
+A push to `main` triggers `.github/workflows/trigger-deploy.yml`, which notifies [portfolio-website-infra](https://github.com/shafi-hassan0/portfolio-website-infra). Infra rebuilds the backend container, reseeds the database if `src/seed/data/**` changed, then triggers the [API test suite](https://github.com/shafi-hassan0/portfolio-website-api-tests) — whose result is reported back here as a commit status.
