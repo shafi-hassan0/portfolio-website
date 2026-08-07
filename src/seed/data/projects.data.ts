@@ -30,7 +30,7 @@ export const projectsData: ProjectSeed[] = [
       "skill-github-actions",
     ],
     githubUrl: "https://github.com/shafi-hassan0/portfolio-website-api",
-    demoUrl: "https://shafihassan.com/api/health",
+    demoUrl: "",
     images: [
       {
         url: "/images/projects/portfolio-api.png",
@@ -55,7 +55,7 @@ export const projectsData: ProjectSeed[] = [
       "skill-github-actions",
     ],
     githubUrl: "https://github.com/shafi-hassan0/portfolio-website-ui",
-    demoUrl: "https://shafihassan.com",
+    demoUrl: "",
     images: [
       {
         url: "/images/projects/portfolio-ui.png",
