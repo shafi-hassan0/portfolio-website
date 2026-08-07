@@ -17,24 +17,48 @@ export interface ProjectSeed {
 
 export const projectsData: ProjectSeed[] = [
   {
-    _id: "project-portfolio",
-    title: "Personal Portfolio Platform",
+    _id: "project-api",
+    title: "Portfolio REST API",
     description:
-      "Full-stack portfolio application built using Angular, Node.js, and MongoDB. Designed around a database-driven architecture with REST APIs.",
+      "Node/Express/MongoDB backend serving all of this site's content — projects, skills, experience, and more — over a versioned REST API, with static image hosting and a database-driven, no-redeploy-to-edit-content architecture.",
     category: "Web Application",
     status: "Completed",
     skillsUsed: [
-      "skill-angular",
       "skill-node",
       "skill-mongodb",
       "skill-typescript",
       "skill-github-actions",
     ],
     githubUrl: "https://github.com/shafi-hassan0/portfolio-website-api",
-    demoUrl: "",
+    demoUrl: "https://shafihassan.com/api/health",
     images: [
       {
-        url: "/images/projects/portfolio.png",
+        url: "/images/projects/portfolio-api.png",
+        caption: "Portfolio REST API",
+      },
+    ],
+    featured: true,
+    dateCreated: "2026",
+    published: true,
+  },
+  {
+    _id: "project-ui",
+    title: "Portfolio Frontend",
+    description:
+      "Angular single-page application for shafihassan.com — every page (projects, skills, experience, resume, even a small playground of mini-games) driven by live data from the companion REST API rather than hardcoded content.",
+    category: "Web Application",
+    status: "Completed",
+    skillsUsed: [
+      "skill-angular",
+      "skill-typescript",
+      "skill-tailwind",
+      "skill-github-actions",
+    ],
+    githubUrl: "https://github.com/shafi-hassan0/portfolio-website-ui",
+    demoUrl: "https://shafihassan.com",
+    images: [
+      {
+        url: "/images/projects/portfolio-ui.png",
         caption: "Portfolio Dashboard",
       },
     ],
