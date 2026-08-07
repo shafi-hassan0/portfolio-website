@@ -93,4 +93,29 @@ export const projectsData: ProjectSeed[] = [
     dateCreated: "2026",
     published: true,
   },
+  {
+    _id: "project-infra",
+    title: "Portfolio Deployment Infra",
+    description:
+      "Docker Compose stack running the portfolio's backend, frontend, and Nginx reverse proxy on a home server, exposed to the internet via a Cloudflare Tunnel with no inbound ports opened. GitHub Actions pipeline deploys automatically on every backend/frontend push, then dispatches and waits on the downstream test suites, reporting their real pass/fail back as its own job status.",
+    category: "DevOps",
+    status: "Completed",
+    skillsUsed: [
+      "skill-docker",
+      "skill-cloudflare",
+      "skill-git",
+      "skill-github-actions",
+    ],
+    githubUrl: "https://github.com/shafi-hassan0/portfolio-website-infra",
+    demoUrl: "",
+    images: [
+      {
+        url: "/images/projects/portfolio-infra.png",
+        caption: "Deployment Infra",
+      },
+    ],
+    featured: false,
+    dateCreated: "2026",
+    published: true,
+  },
 ];
