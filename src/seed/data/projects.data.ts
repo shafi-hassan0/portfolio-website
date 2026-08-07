@@ -68,4 +68,29 @@ export const projectsData: ProjectSeed[] = [
     dateCreated: "2026",
     published: true,
   },
+  {
+    _id: "project-ui-tests",
+    title: "Portfolio UI Test Suite",
+    description:
+      "Playwright end-to-end suite covering every page of the portfolio frontend, with content cross-checked live against the API rather than hardcoded — navigation, forms, the skills/experience detail dialogs, slider navigation and image loading, working external links, and all six Playground games — plus a GitHub Actions pipeline triggered automatically whenever the frontend deploys, reporting results back as a commit status.",
+    category: "Test Automation",
+    status: "Completed",
+    skillsUsed: [
+      "skill-playwright",
+      "skill-node",
+      "skill-github-actions",
+      "skill-typescript",
+    ],
+    githubUrl: "https://github.com/shafi-hassan0/portfolio-website-ui-tests",
+    demoUrl: "",
+    images: [
+      {
+        url: "/images/projects/portfolio-ui-testing.png",
+        caption: "UI Test Suite",
+      },
+    ],
+    featured: false,
+    dateCreated: "2026",
+    published: true,
+  },
 ];
