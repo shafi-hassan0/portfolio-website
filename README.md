@@ -2,6 +2,10 @@
 
 Node/Express/MongoDB backend for [shafihassan.com](https://shafihassan.com). Serves the REST API and static images consumed by [portfolio-website-ui](https://github.com/shafi-hassan0/portfolio-website-ui), and is deployed together with it via [portfolio-website-infra](https://github.com/shafi-hassan0/portfolio-website-infra).
 
+## CI/CD
+
+Every push to `main` triggers a deploy via [portfolio-website-infra](https://github.com/shafi-hassan0/portfolio-website-infra), which then runs the [API test suite](https://github.com/shafi-hassan0/portfolio-website-api-tests) and reports the result back here as a commit status.
+
 ## Stack
 
 - Node.js / Express
