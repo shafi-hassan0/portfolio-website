@@ -22,4 +22,5 @@ export const env = {
   emailjsTemplateId: required("EMAILJS_TEMPLATE_ID"),
   emailjsPublicKey: required("EMAILJS_PUBLIC_KEY"),
   emailjsPrivateKey: required("EMAILJS_PRIVATE_KEY"),
+  anthropicApiKey: required("ANTHROPIC_API_KEY"),
 };
