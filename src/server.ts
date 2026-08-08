@@ -11,8 +11,14 @@ import { certificationRoutes } from "./routes/certification.routes";
 import { educationRoutes } from "./routes/education.routes";
 import { nowRoutes } from "./routes/now.routes";
 import { contactRoutes } from "./routes/contact.routes";
+import { chatRoutes } from "./routes/chat.routes";
 
 const app = express();
+
+// Single reverse proxy hop (nginx) in front of this app — trust its
+// X-Forwarded-For so req.ip resolves to the real visitor, not nginx's own
+// address. Without this, rate limiters key on the same IP for every request.
+app.set("trust proxy", 1);
 
 app.use(cors());
 app.use(express.json());
@@ -39,6 +45,7 @@ app.use("/api/certifications", certificationRoutes);
 app.use("/api/education", educationRoutes);
 app.use("/api/now", nowRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.use(
   (

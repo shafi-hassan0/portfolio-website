@@ -23,7 +23,7 @@ export const experiencesData: ExperienceSeed[] = [
     location: "Richmond, VA",
     employmentType: "Full-Time",
     startDate: "2023-07",
-    endDate: null,
+    endDate: "2026-07",
     description:
       "Quality Engineer architecting frontend and backend test automation frameworks across SCRUM and KANBAN release cycles, integrating suites into CI/CD pipelines and mentoring teammates on automation and quality engineering best practices.",
     responsibilities: [
