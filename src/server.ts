@@ -15,10 +15,12 @@ import { chatRoutes } from "./routes/chat.routes";
 
 const app = express();
 
-// Single reverse proxy hop (nginx) in front of this app — trust its
-// X-Forwarded-For so req.ip resolves to the real visitor, not nginx's own
-// address. Without this, rate limiters key on the same IP for every request.
-app.set("trust proxy", 1);
+// Two reverse proxy hops in front of this app — cloudflared, then nginx
+// (Internet -> Cloudflare Tunnel -> cloudflared -> nginx -> here) — so
+// Express needs to trust 2 hops of X-Forwarded-For to resolve req.ip to the
+// real visitor. Trusting only 1 (nginx) still collapses every request onto
+// cloudflared's constant internal address, same bug as trusting 0.
+app.set("trust proxy", 2);
 
 app.use(cors());
 app.use(express.json());
