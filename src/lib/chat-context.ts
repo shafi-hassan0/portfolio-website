@@ -76,6 +76,45 @@ const GENERIC_KEYWORDS = [
   "currently",
 ];
 
+// Excluded when extracting keywords from titles/names/categories — even
+// those "structured" fields are natural language (e.g. a story chapter
+// titled "The First Line of Code"), and common filler words like "the" or
+// "of" would otherwise make the gate match almost any English sentence.
+// Not applied to GENERIC_KEYWORDS, which are deliberately chosen.
+const STOPWORDS = new Set([
+  "a",
+  "an",
+  "the",
+  "of",
+  "in",
+  "on",
+  "at",
+  "to",
+  "for",
+  "and",
+  "or",
+  "but",
+  "is",
+  "are",
+  "was",
+  "were",
+  "be",
+  "been",
+  "being",
+  "my",
+  "our",
+  "its",
+  "with",
+  "from",
+  "by",
+  "as",
+  "that",
+  "this",
+  "these",
+  "those",
+  "it",
+]);
+
 let cached: ChatContext | null = null;
 let cachedAt = 0;
 
@@ -190,12 +229,11 @@ export async function getChatContext(): Promise<ChatContext> {
     certificationsText,
   ].join("\n");
 
-  const keywordSource = [
-    ...GENERIC_KEYWORDS,
-    // Deliberately structured fields only (titles, names, categories) — NOT
-    // free-text description/content fields. Those are natural-language
-    // paragraphs, and common words like "about" or "the" appear in nearly
-    // all of them, which made the gate match almost any English sentence.
+  // Deliberately structured fields only (titles, names, categories) — NOT
+  // free-text description/content fields. Those are natural-language
+  // paragraphs, and common words like "about" appeared in nearly all of
+  // them, which made the gate match almost any English sentence.
+  const derivedSource = [
     ...projects.flatMap((p) => [p.title, p.category]),
     ...skills.flatMap((s) => [s.name, s.category]),
     ...experiences.flatMap((e) => [e.company, e.role]),
@@ -204,7 +242,13 @@ export async function getChatContext(): Promise<ChatContext> {
     ...certifications.flatMap((c) => [c.name, c.issuer]),
   ];
 
-  const keywords = new Set(keywordSource.filter(Boolean).flatMap(tokenize));
+  const keywords = new Set([
+    ...GENERIC_KEYWORDS.flatMap(tokenize),
+    ...derivedSource
+      .filter(Boolean)
+      .flatMap(tokenize)
+      .filter((word) => !STOPWORDS.has(word)),
+  ]);
 
   cached = { systemPrompt, keywords };
   cachedAt = now;
